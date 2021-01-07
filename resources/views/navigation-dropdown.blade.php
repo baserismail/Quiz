@@ -40,6 +40,16 @@
                     </x-slot>
 
                     <x-slot name="content">
+                    @if(auth()->user()->type=='admin')
+                        <div class="block px-4 py-2 text-xs text-gray-400">
+                            Admin Menus
+                        </div>
+
+                        <x-jet-dropdown-link href="{{ route('quizzes.index') }}">
+                           Quizzes
+                        </x-jet-dropdown-link>                    
+                    @endif
+                    <div class="border-t border-gray-100"></div>
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
                             {{ __('Manage Account') }}
